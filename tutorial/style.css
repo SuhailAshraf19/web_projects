@@ -1,0 +1,30 @@
+/* #navbar{
+    background-color: black;
+    height: 5rem;
+    display: flex;
+    justify-content:space-around;
+
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+    margin-top: 2em;
+} */
+.div1{
+    height: 50vh;
+    width: 50vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+#div2{
+    background-color:red;
+    height: 50%;
+    width: 50%;
+    
+    
+}

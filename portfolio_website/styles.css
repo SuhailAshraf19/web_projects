@@ -1,0 +1,248 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    z-index: 1000;
+}
+.head {
+    padding-top: 4vh;
+    display:flex;
+    background-color: lightblue;
+    justify-content:center;
+    align-items: center;
+}
+.head h1{
+    font-size: 2em; 
+    display: flex;
+    padding-right: 15vw;
+    padding-left: 7vw;
+    align-content: center;
+}
+nav {
+    display: flex; /* Use flexbox */
+    justify-content:space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    height: 20vh; /* 20% of the viewport height */
+    width: 100vw;
+    position: fixed;
+    }
+
+ main, footer {
+            padding-top: 20vh;
+            padding: 1rem;
+            text-align: center;
+        }
+
+
+nav ul {
+    display: flex; /* Use flexbox for the list */
+    list-style:none ; /* Remove default list styling */
+    margin: 0; /* Remove default margin */
+    padding: 1vw; /* Remove default padding */
+}
+
+nav ul li {
+     padding-left: 2vw;
+}
+nav ul li a{
+    font-size: 2vw;
+    text-decoration: none;
+    color: rgb(242, 242, 247); 
+    font-weight: bold;
+    font-size: larger;
+}
+nav img {
+    height: 60%; /* Adjust height as needed */
+    border-radius: 50%; /* Make the photo circular */
+    /* Space between navbar items and the photo */
+    margin-right:5%;
+}
+
+main {
+    
+    padding-top: 18vh;
+}
+
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-right: 0%;
+}
+section {
+    padding: 50px 20px;
+    text-align: left;
+    border-top: 2px solid  green;
+}
+section:first-of-type {
+    border-top: none; /* Remove top border from the first section */
+}
+section h2 {
+    color: black;
+    font-size: 2.5em;
+     margin-bottom: 20px;
+     text-shadow: 
+     -1px -1px 0 #a80685,  
+      1px -1px 0 #000,
+     -1px  1px 0 #000,
+      1px  1px 0 #570fa8;
+    }
+section p {
+    font-size: 1.2em;
+}
+section a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+footer {
+    background: #333;
+    color: white;
+    position: relative;
+    border-top: 2px solid green;
+}
+.button_home{
+    color: white;
+    background-color: blue;
+}
+#about{
+background-color: grey;
+}
+#projects{
+background-color: lightgrey;
+}
+#skills{
+background-color:  lightslategray;
+}
+#contact{
+background-color:azure;
+}
+#resume_image{
+    width: 100%; /* Ensure the image scales with the width of its container */
+    height: auto; /* Maintain the aspect ratio by adjusting the height automatically */
+    max-width: 100%; /* Prevents the image from exceeding its original size */
+    display: block; 
+    border: 1vh solid black;
+}
+education-description, .passion-description, .hobbies-description {
+    margin-bottom: 20px;
+}   
+.skill-heading a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.skill-heading a:hover {
+    text-decoration: underline;
+}
+
+html {
+    scroll-padding-top: 20.2vh; /* Adjust this value based on the height of your navbar */
+  }
+  .contact-description {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.social-media {
+    display: block;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    padding-bottom: 3%;
+}
+.profile-photo{
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.social-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+@media (max-width: 700px) {
+    .navbar {
+        display: none;
+    }
+    main{
+        padding: 4vh;
+    }
+    .profile-photo {
+        display: flex;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        position:absolute;
+        top: 0;
+        right: 10px;
+        left: 90vw;
+        cursor: pointer;
+        margin-top: 3vh;
+        padding-right: 2vw;
+    }
+    .main-heading{
+        display: none;
+    }
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    right: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: black;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}

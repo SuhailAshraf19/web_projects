@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="head">
+        <a href="tasks.html" id="view-tasks-btn">View All Tasks</a><br>
+        <h1>Tasker a simple tool to remember your tasks</h1>
+        <img  src="nav_image.png" alt="Nav icon" id="nav_image">
+    </header>
+
+    <main>
+        <div id="notification" class="notification hidden">
+            Task created 
+        </div>  
+        <div id="side-nav" class="side-nav">
+            <a href="javascript:void(0)" class="close-btn" id="close-btn">&times;</a>
+            <a href="tasks.html">View All Tasks</a>
+            <a href="#">View Tasks for a date</a>
+            <a href="#">View Checked Tasks</a>
+            <a href="#">View unchecked Tasks</a>
+        </div>
+        <!-- <input type="date" id="view-date-input" d >
+        <button id="view-selected-tasks-btn">View Tasks</button> -->
+        <div class="add_task">
+        <h2>Add a new Task</h2>
+        <input type="text" id="task-input" placeholder="Add a new task">
+        <input type="datetime-local" id="datetime-input">
+        <button id="add-task-btn">Add Task</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
