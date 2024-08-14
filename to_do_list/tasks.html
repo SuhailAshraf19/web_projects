@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Your Tasks</h1>
+    <header id="head2">
+       
+         <img src="back_home.png" id="back_home" onclick="go_to_home()">
+         <h1>Your Tasks</h1>
+      
     </header>
 
     <main>
-        <ul id="task-list"></ul>
+          <ul id="task-list"></ul>
+     
         <table id="task-table">
             <thead>
                 <tr>
@@ -27,7 +31,6 @@
                 <!-- Tasks will be populated here -->
             </tbody>
         </table>
-        <a id="back_home" href="index.html">Back to Home</a>
     </main>
 
     <script src="view-tasks.js"></script>

@@ -82,6 +82,8 @@ document.getElementById('nav_image').addEventListener('click', function() {
 document.getElementById('close-btn').addEventListener('click', function() {
     document.getElementById('side-nav').style.width = '0px';
 });
+// Filter tasks by date when the filter button is clicked
+// Date filter functionality
 document.getElementById('filter-button').addEventListener('click', function () {
     const selectedDate = document.getElementById('date-input').value; // Get the selected date
 
@@ -96,3 +98,46 @@ document.getElementById('filter-button').addEventListener('click', function () {
         alert('Please select a date');
     }
 });
+
+
+// Show checked tasks
+// Date filter functionality
+// Date filter functionality
+document.getElementById('filter-button').addEventListener('click', function () {
+    const selectedDate = document.getElementById('date-input').value; // format: YYYY-MM-DD
+    console.log('Selected Date:', selectedDate); // Debugging log
+    localStorage.setItem('filterDate', selectedDate);
+    localStorage.removeItem('taskFilter'); // Clear task filter if any
+    window.location.href = 'tasks.html';
+});
+
+// Show checked tasks
+document.getElementById('show-checked-btn').addEventListener('click', function () {
+    console.log('Showing checked tasks'); // Debugging log
+    localStorage.setItem('taskFilter', 'checked');
+    localStorage.removeItem('filterDate'); // Clear date filter if any
+    window.location.href = 'tasks.html';
+});
+
+// Show unchecked tasks
+document.getElementById('show-unchecked-btn').addEventListener('click', function () {
+    console.log('Showing unchecked tasks'); // Debugging log
+    localStorage.setItem('taskFilter', 'unchecked');
+    localStorage.removeItem('filterDate'); // Clear date filter if any
+    window.location.href = 'tasks.html';
+});
+
+
+// Get the buttons from the DOM
+
+// Event listener for showing checked tasks
+function showAllTasks(){
+    localStorage.removeItem('filterDate'); // Clear date filter if any
+    localStorage.removeItem('taskFilter'); // Clear any task filter (checked/unchecked)
+    window.location.href = 'tasks.html'; // Navigate to the tasks page
+}
+
+// Attach the showAllTasks function to both buttons
+document.getElementById('view-tasks-btn').addEventListener('click', showAllTasks); // Button on the main page
+document.getElementById('view-all-tasks-side-btn').addEventListener('click', showAllTasks); // Button in the side-nav
+

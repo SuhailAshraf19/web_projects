@@ -3,7 +3,9 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 0;
+    padding-top: 10vh;
+    padding-right: 1vw;
+    padding-left: 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +23,23 @@ body {
     align-items: center;
    text-align: center;
    padding: 10px;
+}
+#head2{
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center; /* Align items vertically */
+    padding: 10px 20px; /* Add padding around the navbar */
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Stick the navbar to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    height: 60px; /* Set a specific height for the navbar */
+}
+#head2 h1{
+    color:green
 }
 h1{
     display: inline-block;
@@ -132,16 +151,11 @@ main {
     background-color: #0056b3;
 }
 #back_home{
-    text-decoration: none;
-    color: white;
-    position: absolute; /* or 'fixed' if you want it to stay in the corner even when scrolling */
-    top: 20px;          /* Distance from the top of the page */
-    left: 20px;         /* Distance from the left of the page */
-    padding: 5px 10px;  /* Optional padding for better spacing */
-    background-color: green; /* Optional background for better visibility */
-    border-radius: 5px; /* Optional rounded corners */
+    height: 60px; /* Adjust the size of the image */
+    cursor: pointer; /* Changes cursor to pointer when hovering */
     
 }
+
 #nav_image{
     display: inline-block;
     text-decoration: none;
@@ -149,7 +163,7 @@ main {
     right: 20px;         /* Distance from the left of the page *//* Optional padding for better spacing */
     background-color: transparent; /* Optional background for better visibility */
     border-radius: 5px; /* Optional rounded corners */
-    height: 6vw;
+    height: 5vw;
     width: auto;  
     max-width: 15vw;  
     padding-left: 5vw;
@@ -240,7 +254,9 @@ main {
 /* for tasks.html */
 /* Container styling */
 #task-table {
-    width: 90%; /* Occupy 90% of the screen width */
+
+    width: 90%; 
+    /* Occupy 90% of the screen width */
     margin: 20px auto; /* Center the table horizontally */
     border-collapse: collapse; /* Ensure borders collapse to avoid double borders */
 }
@@ -279,11 +295,7 @@ main {
 }
 
 /* Responsive Design for Smaller Screens */
-@media (max-width: 600px) {
-    #task-table, #task-table th, #task-table td {
-        font-size: 12px; /* Reduce font size on smaller screens */
-    }
-}
+
 /* Odd Row Styling */
 #task-table tbody tr:nth-child(odd) {
     background-color: #d3d3d3; /* Light grey background for odd rows */

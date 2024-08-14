@@ -4,66 +4,78 @@ const taskTableBody = document.getElementById('task-table-body');
 // Load tasks from Local Storage on page load
 document.addEventListener('DOMContentLoaded', loadTasks);
 
-// Function to load tasks from Local Storage
 function loadTasks() {
-    // Get the selected date from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedDate = urlParams.get('date'); // Expected format: "DD-MM-YYYY"
-
-    // Parse tasks from Local Storage
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    // Clear any existing tasks in the table
+    const filterDate = localStorage.getItem('filterDate');
+    const taskFilter = localStorage.getItem('taskFilter');
+
+    // Clear existing tasks
+    let tasksToShow = 0;
     taskTableBody.innerHTML = '';
 
-    // Filter and display tasks based on whether a date is selected
     tasks.forEach((task, index) => {
-        const [taskDate, time] = task.dateTime.split(' ');
+        const [date, time] = task.dateTime.split(' ');
 
-        if (!selectedDate || taskDate === selectedDate) {
-            const tr = document.createElement('tr');
-
-            tr.innerHTML = `
-                <td>${task.text}</td>
-                <td>${taskDate}</td>
-                <td>${time}</td>
-                <td><input type="checkbox" class="task-checkbox" ${task.done ? 'checked' : ''}></td>
-                <td><button class="delete-btn">Delete</button></td>
-            `;
-
-            taskTableBody.appendChild(tr);
-
-            // Handle task completion
-            const checkbox = tr.querySelector('.task-checkbox');
-            checkbox.addEventListener('change', () => {
-                toggleTaskDone(index, checkbox.checked);
-            });
-
-            // Add delete functionality
-            const deleteBtn = tr.querySelector('.delete-btn');
-            deleteBtn.addEventListener('click', () => {
-                deleteTask(index, tr);
-            });
+        // Apply date filter if filterDate is set
+        if (filterDate) {
+            const [day, month, year] = date.split('-');
+            const formattedTaskDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+            if (formattedTaskDate !== filterDate) {
+                return; // Skip tasks that do not match the filter date
+            }
         }
+
+        // Apply checked/unchecked filter
+        if (taskFilter === 'checked' && !task.done) return;
+        if (taskFilter === 'unchecked' && task.done) return;
+
+        // Create table row for the task
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${task.text}</td>
+            <td>${date}</td>
+            <td>${time}</td>
+            <td><input type="checkbox" class="task-checkbox" ${task.done ? 'checked' : ''}></td>
+            <td><button class="delete-btn">Delete</button></td>
+        `;
+
+        taskTableBody.appendChild(tr);
+        tasksToShow++;
+
+        // Handle task completion
+        const checkbox = tr.querySelector('.task-checkbox');
+        checkbox.addEventListener('change', () => {
+            toggleTaskDone(index, checkbox.checked);
+        });
+
+        // Add delete functionality
+        const deleteBtn = tr.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', () => {
+            deleteTask(index, tr);
+        });
     });
+    if (tasksToShow === 0) {
+        const noTasksMessage = document.createElement('tr');
+        noTasksMessage.innerHTML = `
+            <td colspan="5" style="text-align: center;">No tasks to show</td>
+        `;
+        taskTableBody.appendChild(noTasksMessage);
+    }
 }
 
-// Function to toggle task completion status
 function toggleTaskDone(index, isDone) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks[index].done = isDone;
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Function to delete a task
 function deleteTask(index, element) {
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.splice(index, 1); // Remove task from array
     localStorage.setItem('tasks', JSON.stringify(tasks));
     taskTableBody.removeChild(element);
 }
-
-// Event listener for "Show All Tasks" button
-document.getElementById('show-all-tasks-btn').addEventListener('click', function () {
-    window.location.href = 'tasks.html'; // Reload the page without any query parameters
-});
+function go_to_home() {
+    window.location.href = 'index.html';
+}
