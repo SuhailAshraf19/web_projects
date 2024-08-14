@@ -18,14 +18,16 @@
             Task created 
         </div>  
         <div id="side-nav" class="side-nav">
-            <a href="javascript:void(0)" class="close-btn" id="close-btn">&times;</a>
+            <div onclick="javascript:void(0)" class="close-btn" id="close-btn">&times;</div>
             <a href="tasks.html">View All Tasks</a>
-            <a href="#">View Tasks for a date</a>
+           <div id="tasks_date"> 
+            <input type="date" id="date-input">
+            <button id="filter-button">Find Tasks</button>
+           </div>
             <a href="#">View Checked Tasks</a>
             <a href="#">View unchecked Tasks</a>
         </div>
-        <!-- <input type="date" id="view-date-input" d >
-        <button id="view-selected-tasks-btn">View Tasks</button> -->
+
         <div class="add_task">
         <h2>Add a new Task</h2>
         <input type="text" id="task-input" placeholder="Add a new task">

@@ -76,9 +76,23 @@ function showNotification() {
     }, 3000);
 }
 document.getElementById('nav_image').addEventListener('click', function() {
-    document.getElementById('side-nav').style.width = '30vw';
+    document.getElementById('side-nav').style.width = '40vw';
 });
 
 document.getElementById('close-btn').addEventListener('click', function() {
-    document.getElementById('side-nav').style.width = '0';
+    document.getElementById('side-nav').style.width = '0px';
+});
+document.getElementById('filter-button').addEventListener('click', function () {
+    const selectedDate = document.getElementById('date-input').value; // Get the selected date
+
+    if (selectedDate) {
+        // Format the selected date as DD-MM-YYYY
+        const date = new Date(selectedDate);
+        const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+        
+        // Redirect to tasks.html with the selected date as a query parameter
+        window.location.href = `tasks.html?date=${formattedDate}`;
+    } else {
+        alert('Please select a date');
+    }
 });

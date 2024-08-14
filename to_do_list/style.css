@@ -24,7 +24,7 @@ body {
 }
 h1{
     display: inline-block;
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: #c20e0e;
     text-align: center;
     max-width: 50vw;
@@ -177,13 +177,17 @@ main {
 
 /* The side navigation menu */
 .side-nav {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%; /* Full-height */
     width: 0px; /* Initially hidden */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
     right: 0; /* Start from the right side */
-    background-color: #111; /* Black */
+    background-color: gray; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in the side navigation */
     padding-top: 60px; /* Place content 60px from the top */
@@ -191,12 +195,19 @@ main {
 
 /* Navigation links */
 .side-nav a {
-    padding: 8px 8px 8px 32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 90%;
+    padding-top: 2vh;
+    padding-right: 5vw;
+    padding-left: 2vw;
+    padding-bottom: 2vh;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.5em;
     color: white;
     display: block;
     transition: 0.3s;
+    background-color: #333;
+    border-bottom: gray 0.5vh solid;
 }
 
 /* Navigation links on hover */
@@ -209,12 +220,13 @@ main {
     font-size: 5vh;
     position: absolute; /* or 'fixed' if you want it to stay in the corner even when scrolling */
     top: 20px;          /* Distance from the top of the page */
-    right: 20px;         /* Distance from the left of the page */
+    right: 3vw;         /* Distance from the left of the page */
     padding: 5px 10px;  /* Optional padding for better spacing */
     /* Optional background for better visibility */
     border-radius: 5px; /* Optional rounded corners */
     height: 4vw;
     width: auto;
+
 }
 #task-input{
     width: 80vw;
@@ -275,4 +287,30 @@ main {
 /* Odd Row Styling */
 #task-table tbody tr:nth-child(odd) {
     background-color: #d3d3d3; /* Light grey background for odd rows */
+}
+#tasks_date{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding-right: 5vw;
+    padding-left: 2vw;
+    padding-bottom: 2vh;
+    background-color: #333;
+    border-bottom: gray 0.5vh solid;
+}
+#date-input{
+    font-size: 2em;
+   max-width: 50%;
+}
+#filter-button{
+    font-size: 1.5em;
+    background-color: #218838;
+}
+#filter-button:hover{
+ background-color: blue;
+}
+#close-btn{
+    font-size: 2em;
+    color: white;
 }
