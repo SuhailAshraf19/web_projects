@@ -3,9 +3,9 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding-top: 10vh;
+    width: 90%;
     padding-right: 1vw;
-    padding-left: 1vw;
+    padding-left: 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,6 +169,10 @@ main {
     padding-left: 5vw;
     
 }
+#nav_image2{
+    height: 4.5vw;
+    width: auto;  
+}
 .notification {
     position: fixed;
     top: 0;
@@ -197,14 +201,19 @@ main {
     align-items: center;
     height: 100%; /* Full-height */
     width: 0px; /* Initially hidden */
-    position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
+    padding-top: 0px;
     right: 0; /* Start from the right side */
     background-color: gray; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in the side navigation */
     padding-top: 60px; /* Place content 60px from the top */
+    position: fixed; /* Stick the navbar to the top */
+    top: 0;
+    right: 0;
+    z-index: 1001; /* Ensure it stays above other content */
+    height: 100%; /* Set a specific height for the navbar */
 }
 
 /* Navigation links */
@@ -242,6 +251,20 @@ main {
     width: auto;
 
 }
+#close-btn2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 1vh;
+    padding-left: 2vw;
+    padding-bottom: 2vh;
+    text-decoration: none;
+    font-size: 2em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+   
+    
+
+}
 #task-input{
     width: 80vw;
 }
@@ -254,10 +277,12 @@ main {
 /* for tasks.html */
 /* Container styling */
 #task-table {
-
+    position: absolute;
+    padding-right: 20px;
+    /* Center the table horizontally */
+    top: 15vh; /* Always 15vh from the top */
     width: 90%; 
     /* Occupy 90% of the screen width */
-    margin: 20px auto; /* Center the table horizontally */
     border-collapse: collapse; /* Ensure borders collapse to avoid double borders */
 }
 
@@ -326,3 +351,4 @@ main {
     font-size: 2em;
     color: white;
 }
+/* Ensure the body and html take full height */

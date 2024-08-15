@@ -6,12 +6,22 @@
     <title>View Tasks</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<div id="side-nav" class="side-nav">
+    <div onclick="javascript:void(0)" class="close-btn" id="close-btn2">&times;</div>
+    <a id="view-all-tasks-side-btn" onclick="showAllTasks()">View All Tasks</a>
+   <div id="tasks_date"> 
+    <input type="date" id="date-input">
+    <button id="filter-button">Find Tasks</button>
+   </div>
+    <a id="show-checked-btn" href="tasks.html">View Checked Tasks</a>
+    <a id="show-unchecked-btn" href="tasks.html">View unchecked Tasks</a>
+</div>
 <body>
     <header id="head2">
        
          <img src="back_home.png" id="back_home" onclick="go_to_home()">
          <h1>Your Tasks</h1>
-      
+         <img  src="nav_image.png" alt="Nav icon" id="nav_image2">
     </header>
 
     <main>
@@ -32,6 +42,7 @@
             </tbody>
         </table>
     </main>
+
 
     <script src="view-tasks.js"></script>
 </body>
