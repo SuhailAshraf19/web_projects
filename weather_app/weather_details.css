@@ -1,0 +1,10 @@
+#city_name{
+    display: flex;
+    font-size: 3vh;
+    width: 94%;
+    background-color: lightblue;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-right: 3vw;
+    margin-left: 3vw;
+}

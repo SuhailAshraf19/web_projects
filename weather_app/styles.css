@@ -82,3 +82,7 @@ body {
         height: 250px;
     }
 }
+#map{
+    height: 400px;
+    width: 100%;
+}

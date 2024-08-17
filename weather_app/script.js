@@ -1,6 +1,9 @@
    // Placeholder for JavaScript functions
+   let latitude;
+   let longitude;
    document.getElementById('search-button').addEventListener('click', function() {
     const city = document.getElementById('city-input').value;
+    
     // Add AJAX call to fetch weather data and update map
     console.log(`Fetching weather for ${city}`);
 });
@@ -12,11 +15,13 @@ function getLocation() {
         .then(response => response.json())
         .then(data => {
             const loc = data.loc.split(',');
-            const latitude = loc[0];
-            const longitude = loc[1];
+             latitude = loc[0];
+             longitude = loc[1];
             document.getElementById('location-info').innerHTML =
                 `Latitude: ${latitude}<br>Longitude: ${longitude}`;
-                 getLocationName(latitude, longitude);     
+                 
+                getLocationName(latitude, longitude);    
+                 initializeMap(latitude, longitude); 
         })
         .catch(error => {
             console.error('Error fetching location data:', error);
@@ -47,6 +52,43 @@ function getLocationName(latitude, longitude) {
 }
 window.onload = function() {
     getLocation();
-    getLocationName(latitude, longitude);
 };
+function initializeMap(lat, lng) {
+    var map = L.map('map').setView([lat, lng], 13);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    var marker = L.marker([lat, lng]).addTo(map);
+
+    map.on('click', function(e) {
+        latitude = e.latlng.lat;
+        longitude = e.latlng.lng;
+
+        marker.setLatLng([latitude, longitude]);
+
+        document.getElementById('location-info').innerHTML =
+            `Latitude: ${latitude}<br>Longitude: ${longitude}`;
+
+        // Call the function to update the location name based on new coordinates
+        getLocationName(latitude, longitude);
+    });
+}
+
+        // Assuming you already have this function defined elsewhere
+        function search_weather() {
+            const city = document.getElementById('city-input').value;
+            
+            if (city) {
+                // Store the city name/address in sessionStorage
+                sessionStorage.setItem('selectedcity', city);
+                sessionStorage.setItem('latitude', latitude);
+                sessionStorage.setItem('longitude', longitude);
+                // Navigate to weather_details.html in the same tab
+                window.location.href = `weather_details.html`;
+            } else {
+                alert('Please enter a city name!');
+            }
+        }
